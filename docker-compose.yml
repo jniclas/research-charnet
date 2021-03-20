@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  charnet:
+    build:
+      dockerfile: dockerfile
+      context: .
+    volumes:
+      - ./:/workspace
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: [gpu]
+    
